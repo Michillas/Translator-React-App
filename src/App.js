@@ -2,7 +2,24 @@ import { SelectValue, SelectTrigger, SelectItem, SelectContent, Select } from ".
 import { Label } from "./components/ui/label"
 import { Button } from "./components/ui/button"
 
+import {useEffect, useState} from 'react'
+
 function App() {
+
+  const [theme, setTheme] = useState("light")
+
+  useEffect(() => {
+    if (theme == "dark") {
+      document.querySelector('body').classList.remove('dark')
+    } else {
+      document.querySelector('body').classList.add('dark')
+    }
+  })
+
+  const handleChangeTheme = () => {
+    setTheme(prevTheme => prevTheme == "light" ? "dark" : "light")
+  }
+
   return (
     <main className="flex flex-col h-screen">
       <header className="flex items-center justify-between bg-gray-100 p-4 shadow-md dark:bg-gray-800">
@@ -19,17 +36,21 @@ function App() {
             <SelectItem value="de">German</SelectItem>
           </SelectContent>
         </Select>
+        <Button variant="ghost" onClick={handleChangeTheme}>
+            <ThemeIcon className="w-5 h-5" />
+            <span className="sr-only">Toggle dark mode</span>
+        </Button>
       </header>
-      <div className="flex-1 grid gap-6 p-4 md:grid-cols-2">
+      <div className="flex-1 grid gap-6 p-4 md:grid-cols-2 dark:bg-gray-700">
         <div className="grid gap-2">
-          <Label htmlFor="input-text" className="text-lg">Input Text</Label>
+          <Label htmlFor="input-text" className="text-lg dark:text-gray-100">Input Text</Label>
           <textarea className="h-64 p-2 border rounded-md dark:bg-gray-800 dark:text-gray-100" id="input-text" />
         </div>
         <div className="grid gap-2">
-          <Label htmlFor="output-text" className="text-lg">Output Text</Label>
+          <Label htmlFor="output-text" className="text-lg dark:text-gray-100">Output Text</Label>
           <textarea className="h-64 p-2 border rounded-md dark:bg-gray-800 dark:text-gray-100" id="output-text" />
         </div>
-        <Button className="md:col-span-2">Translate</Button>
+        <Button className="md:col-span-2 dark:text-gray-100">Translate</Button>
       </div>
       <div className="bg-gray-100 p-4 shadow-md dark:bg-gray-800">
         <h2 className="text-xl font-bold text-gray-900 dark:text-gray-100">Recent Translations</h2>
@@ -46,3 +67,49 @@ function App() {
 }
 
 export default App;
+
+function ThemeIcon(props) {
+  if (document.querySelector('body').classList.contains('dark')) {
+    return (
+      <svg
+        {...props}
+        xmlns="http://www.w3.org/2000/svg"
+        width="24"
+        height="24"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      >
+        <path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z" />
+      </svg>
+    )
+  } else {
+    return (
+      <svg
+        {...props}
+        xmlns="http://www.w3.org/2000/svg"
+        width="24"
+        height="24"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      >
+        <circle cx="12" cy="12" r="4" />
+        <path d="M12 2v2" />
+        <path d="M12 20v2" />
+        <path d="m4.93 4.93 1.41 1.41" />
+        <path d="m17.66 17.66 1.41 1.41" />
+        <path d="M2 12h2" />
+        <path d="M20 12h2" />
+        <path d="m6.34 17.66-1.41 1.41" />
+        <path d="m19.07 4.93-1.41 1.41" />
+      </svg>
+    )
+  }
+}
