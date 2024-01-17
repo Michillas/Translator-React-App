@@ -1,7 +1,10 @@
 # Translator [NOT WORKING] / IN PROGRESS
 Still not functional
 
-## Run it
+## 1 - Install it
+### `npm install`
+
+## 2 - Run it
 ### `npm start`
 
 ## Created with create-react-app
