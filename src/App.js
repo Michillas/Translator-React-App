@@ -1,24 +1,46 @@
-import logo from './logo.svg';
-import './App.css';
+import { SelectValue, SelectTrigger, SelectItem, SelectContent, Select } from "./components/ui/select"
+import { Label } from "./components/ui/label"
+import { Button } from "./components/ui/button"
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+    <main className="flex flex-col h-screen">
+      <header className="flex items-center justify-between bg-gray-100 p-4 shadow-md dark:bg-gray-800">
+        <h1 className="text-2xl font-bold text-gray-900 dark:text-gray-100">Translator App</h1>
+        <Select>
+          <SelectTrigger className="text-gray-500 dark:text-gray-400">
+            <SelectValue placeholder="Select language" />
+          </SelectTrigger>
+          <SelectContent>
+            <SelectItem value="en">English</SelectItem>
+            <SelectItem value="es">Spanish</SelectItem>
+            <SelectItem value="fr">French</SelectItem>
+            <SelectItem value="de">German</SelectItem>
+          </SelectContent>
+        </Select>
       </header>
-    </div>
+      <div className="flex-1 grid gap-6 p-4 md:grid-cols-2">
+        <div className="grid gap-2">
+          <Label htmlFor="input-text">Input Text</Label>
+          <textarea className="h-32 p-2 border rounded-md dark:bg-gray-800 dark:text-gray-100" id="input-text" />
+        </div>
+        <div className="grid gap-2">
+          <Label htmlFor="output-text">Output Text</Label>
+          <textarea className="h-32 p-2 border rounded-md dark:bg-gray-800 dark:text-gray-100" id="output-text" />
+        </div>
+        <Button className="md:col-start-2">Translate</Button>
+      </div>
+      <div className="bg-gray-100 p-4 shadow-md dark:bg-gray-800">
+        <h2 className="text-xl font-bold text-gray-900 dark:text-gray-100">Recent Translations</h2>
+        <ul className="space-y-2 mt-2">
+          <li className="text-gray-700 dark:text-gray-300">Hello - Hola</li>
+          <li className="text-gray-700 dark:text-gray-300">Goodbye - Adiós</li>
+          <li className="text-gray-700 dark:text-gray-300">Please - Por favor</li>
+          <li className="text-gray-700 dark:text-gray-300">Thank you - Gracias</li>
+          <li className="text-gray-700 dark:text-gray-300">Yes - Sí</li>
+        </ul>
+      </div>
+    </main>
   );
 }
 
