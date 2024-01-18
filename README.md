@@ -15,8 +15,8 @@ https://translator-react-app.vercel.app/
 #### `git clone https://github.com/Michillas/Translator-React-App.git`
 ### 3- Navigate to it and install dependencies with npm
 #### `npm install`
-### 4- Setup the .env for your API Key
-## REACT_APP_RAPIDAPI_KEY=yourapikeygoeshere -> https://rapidapi.com/dickyagustin/api/text-translator2
+### 4- Setup the .env file for your API Key
+### `REACT_APP_RAPIDAPI_KEY=yourapikeygoeshere` -> https://rapidapi.com/dickyagustin/api/text-translator2
 ### 5- Start the app
 #### `npm start`
 
