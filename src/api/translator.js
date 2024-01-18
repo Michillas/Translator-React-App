@@ -1,5 +1,7 @@
 async function translateText(selectedValueInput, selectedValueOutput) {
 
+  const apiKey = process.env.REACT_APP_RAPIDAPI_KEY;
+
   const inputText = document.getElementById('input-text')
   const outputText = document.getElementById('output-text')
 
@@ -8,7 +10,7 @@ async function translateText(selectedValueInput, selectedValueOutput) {
     method: "POST",
     headers: {
       "content-type": "application/x-www-form-urlencoded",
-      "X-RapidAPI-Key": "ec37769452mshdd95dd180c5fa6ep17a417jsnf073bf53cf53",
+      "X-RapidAPI-Key": apiKey,
       "X-RapidAPI-Host": "text-translator2.p.rapidapi.com",
     },
     body: new URLSearchParams({
