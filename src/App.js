@@ -8,8 +8,12 @@ function App() {
 
   const [theme, setTheme] = useState("light")
 
+  const [inputLang, setInputLang] = useState("es")
+
+  const [outputLang, setOutputLang] = useState("en")
+
   useEffect(() => {
-    if (theme == "dark") {
+    if (theme === "dark") {
       document.querySelector('body').classList.remove('dark')
     } else {
       document.querySelector('body').classList.add('dark')
@@ -17,7 +21,7 @@ function App() {
   })
 
   const handleChangeTheme = () => {
-    setTheme(prevTheme => prevTheme == "light" ? "dark" : "light")
+    setTheme(prevTheme => prevTheme === "light" ? "dark" : "light")
   }
 
   return (
@@ -38,10 +42,10 @@ function App() {
               <SelectValue placeholder="Select language" />
             </SelectTrigger>
             <SelectContent>
-              <SelectItem value="en" id="">English</SelectItem>
-              <SelectItem value="es" id="">Spanish</SelectItem>
-              <SelectItem value="fr" id="">French</SelectItem>
-              <SelectItem value="de" id="">German</SelectItem>
+              <SelectItem value="en">English</SelectItem>
+              <SelectItem value="es">Spanish</SelectItem>
+              <SelectItem value="fr">French</SelectItem>
+              <SelectItem value="de">German</SelectItem>
             </SelectContent>
           </Select>
           <textarea className="h-64 p-2 border rounded-md dark:bg-gray-800 dark:text-gray-100" id="input-text" />
@@ -61,7 +65,7 @@ function App() {
           </Select>
           <textarea className="h-64 p-2 border rounded-md dark:bg-gray-800 dark:text-gray-100" id="output-text" />
         </div>
-        <Button className="md:col-span-2 dark:text-gray-100" onClick={translateText}>Translate</Button>
+        <Button className="md:col-span-2 dark:text-gray-100" onClick={() => translateText(inputLang, outputLang)}>Translate</Button>
       </div>
       <div className="bg-gray-100 p-4 shadow-md dark:bg-gray-800">
         <h2 className="text-xl font-bold text-gray-900 dark:text-gray-100">Recent Translations</h2>
@@ -123,7 +127,7 @@ function ThemeIcon(props) {
   }
 }
 
-async function translateText() {
+async function translateText(selectedValueInput, selectedValueOutput) {
 
   const inputText = document.getElementById('input-text')
   const outputText = document.getElementById('output-text')
@@ -133,12 +137,12 @@ async function translateText() {
     method: "POST",
     headers: {
       "content-type": "application/x-www-form-urlencoded",
-      "X-RapidAPI-Key": "28a1aa8d66msh6d641cebad4d626p1c4f86jsn6d655bf181a3",
+      "X-RapidAPI-Key": "ec37769452mshdd95dd180c5fa6ep17a417jsnf073bf53cf53",
       "X-RapidAPI-Host": "text-translator2.p.rapidapi.com",
     },
     body: new URLSearchParams({
-      source_language: 'en',
-      target_language: 'es',
+      source_language: selectedValueInput,
+      target_language: selectedValueOutput,
       text: inputText.value,
     }),
   };
@@ -155,6 +159,5 @@ async function translateText() {
       }
     });
 }
-
 
 export default App;
