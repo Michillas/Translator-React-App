@@ -55,6 +55,10 @@ function App() {
               <SelectItem value="es">Spanish</SelectItem>
               <SelectItem value="fr">French</SelectItem>
               <SelectItem value="de">German</SelectItem>
+              <SelectItem value="ru">Russian</SelectItem>
+              <SelectItem value="ja">Japanese</SelectItem>
+              <SelectItem value="ko">Korean</SelectItem>
+              <SelectItem value="ca">Catalan</SelectItem>
             </SelectContent>
           </Select>
           <textarea className="h-64 p-2 border rounded-md dark:bg-gray-800 dark:text-gray-100" id="input-text" />
@@ -70,6 +74,10 @@ function App() {
               <SelectItem value="es">Spanish</SelectItem>
               <SelectItem value="fr">French</SelectItem>
               <SelectItem value="de">German</SelectItem>
+              <SelectItem value="ru">Russian</SelectItem>
+              <SelectItem value="ja">Japanese</SelectItem>
+              <SelectItem value="ko">Korean</SelectItem>
+              <SelectItem value="ca">Catalan</SelectItem>
             </SelectContent>
           </Select>
           <textarea className="h-64 p-2 border rounded-md dark:bg-gray-800 dark:text-gray-100" id="output-text" />
