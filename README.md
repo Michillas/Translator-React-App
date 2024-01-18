@@ -22,5 +22,7 @@
 
 🟨 - Translation history 
 
+🟨 - Easier manual way to introduce the API Key of RapidAPI
+
 ## Created with create-react-app
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
