@@ -94,6 +94,9 @@ function App() {
           <li className="text-gray-700 dark:text-gray-300">Yes - Sí</li>
         </ul>
       </div>
+      <div className="bg-black">
+        <p className="text-center text-gray-100 text">Made with ❤️ by Michillas</p>
+      </div>
     </main>
   );
 }
