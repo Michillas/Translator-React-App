@@ -16,9 +16,11 @@
 #### `npm start`
 
 ## To-do
-✅ - Support multiple languages
-🟨 - Be able to copy translations
-🟨 - Translation history
+✅ - Support multiple languages 
+
+🟨 - Be able to copy translations 
+
+🟨 - Translation history 
 
 ## Created with create-react-app
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
