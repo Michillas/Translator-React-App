@@ -24,18 +24,7 @@ function App() {
     <main className="flex flex-col h-screen">
       <header className="flex items-center justify-between bg-gray-100 p-4 shadow-md dark:bg-gray-800">
         <img src={process.env.PUBLIC_URL + '/logo192.png'} alt="logo" className="h-16" />
-        <h1 className="text-2xl font-bold text-gray-900 dark:text-gray-100 mx-2 text-center	">Translator App</h1>
-        <Select>
-          <SelectTrigger className="text-gray-500 dark:text-gray-400">
-            <SelectValue placeholder="Select language" />
-          </SelectTrigger>
-          <SelectContent>
-            <SelectItem value="en">English</SelectItem>
-            <SelectItem value="es">Spanish</SelectItem>
-            <SelectItem value="fr">French</SelectItem>
-            <SelectItem value="de">German</SelectItem>
-          </SelectContent>
-        </Select>
+        <h1 className="text-2xl font-bold text-gray-900 dark:text-gray-100 mx-2 text-center">Translator App</h1>
         <Button variant="ghost" onClick={handleChangeTheme}>
             <ThemeIcon className="w-5 h-5" />
             <span className="sr-only">Toggle dark mode</span>
@@ -44,13 +33,35 @@ function App() {
       <div className="flex-1 grid gap-6 p-4 md:grid-cols-2 dark:bg-gray-700">
         <div className="grid gap-2">
           <Label htmlFor="input-text" className="text-lg dark:text-gray-100">Input Text</Label>
+          <Select>
+            <SelectTrigger className="text-gray-500 dark:text-gray-400">
+              <SelectValue placeholder="Select language" />
+            </SelectTrigger>
+            <SelectContent>
+              <SelectItem value="en" id="">English</SelectItem>
+              <SelectItem value="es" id="">Spanish</SelectItem>
+              <SelectItem value="fr" id="">French</SelectItem>
+              <SelectItem value="de" id="">German</SelectItem>
+            </SelectContent>
+          </Select>
           <textarea className="h-64 p-2 border rounded-md dark:bg-gray-800 dark:text-gray-100" id="input-text" />
         </div>
         <div className="grid gap-2">
           <Label htmlFor="output-text" className="text-lg dark:text-gray-100">Output Text</Label>
+          <Select>
+            <SelectTrigger className="text-gray-500 dark:text-gray-400">
+              <SelectValue placeholder="Select language" />
+            </SelectTrigger>
+            <SelectContent>
+              <SelectItem value="en">English</SelectItem>
+              <SelectItem value="es">Spanish</SelectItem>
+              <SelectItem value="fr">French</SelectItem>
+              <SelectItem value="de">German</SelectItem>
+            </SelectContent>
+          </Select>
           <textarea className="h-64 p-2 border rounded-md dark:bg-gray-800 dark:text-gray-100" id="output-text" />
         </div>
-        <Button className="md:col-span-2 dark:text-gray-100">Translate</Button>
+        <Button className="md:col-span-2 dark:text-gray-100" onClick={translateText}>Translate</Button>
       </div>
       <div className="bg-gray-100 p-4 shadow-md dark:bg-gray-800">
         <h2 className="text-xl font-bold text-gray-900 dark:text-gray-100">Recent Translations</h2>
@@ -65,8 +76,6 @@ function App() {
     </main>
   );
 }
-
-export default App;
 
 function ThemeIcon(props) {
   if (document.querySelector('body').classList.contains('dark')) {
@@ -113,3 +122,39 @@ function ThemeIcon(props) {
     )
   }
 }
+
+async function translateText() {
+
+  const inputText = document.getElementById('input-text')
+  const outputText = document.getElementById('output-text')
+
+  const url = "https://text-translator2.p.rapidapi.com/translate";
+  const options = {
+    method: "POST",
+    headers: {
+      "content-type": "application/x-www-form-urlencoded",
+      "X-RapidAPI-Key": "28a1aa8d66msh6d641cebad4d626p1c4f86jsn6d655bf181a3",
+      "X-RapidAPI-Host": "text-translator2.p.rapidapi.com",
+    },
+    body: new URLSearchParams({
+      source_language: 'en',
+      target_language: 'es',
+      text: inputText.value,
+    }),
+  };
+  const promise = fetch(url, options);
+  promise
+    .then((v1) => {
+      return v1.json();
+    })
+    .then((v2) => {
+      try {
+        outputText.value = v2.data.translatedText;
+      } catch {
+        outputText.placeholder = v2.message;
+      }
+    });
+}
+
+
+export default App;
