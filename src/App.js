@@ -3,14 +3,15 @@ import { Label } from "./components/ui/label"
 import { Button } from "./components/ui/button"
 
 import {useEffect, useState} from 'react'
+import { Value } from "@radix-ui/react-select"
 
 function App() {
 
   const [theme, setTheme] = useState("light")
 
-  const [inputLang, setInputLang] = useState("es")
+  const [inputLang, setInputLang] = useState("en")
 
-  const [outputLang, setOutputLang] = useState("en")
+  const [outputLang, setOutputLang] = useState("es")
 
   useEffect(() => {
     if (theme === "dark") {
@@ -22,6 +23,14 @@ function App() {
 
   const handleChangeTheme = () => {
     setTheme(prevTheme => prevTheme === "light" ? "dark" : "light")
+  }
+
+  function handleChangeLang(value, type) {
+    if (type === "input") {
+      setInputLang(value)
+    } else {
+      setOutputLang(value)
+    }
   }
 
   return (
@@ -37,7 +46,7 @@ function App() {
       <div className="flex-1 grid gap-6 p-4 md:grid-cols-2 dark:bg-gray-700">
         <div className="grid gap-2">
           <Label htmlFor="input-text" className="text-lg dark:text-gray-100">Input Text</Label>
-          <Select>
+          <Select onValueChange={(value) => handleChangeLang(value, "input")} defaultValue={"en"}>
             <SelectTrigger className="text-gray-500 dark:text-gray-400">
               <SelectValue placeholder="Select language" />
             </SelectTrigger>
@@ -52,7 +61,7 @@ function App() {
         </div>
         <div className="grid gap-2">
           <Label htmlFor="output-text" className="text-lg dark:text-gray-100">Output Text</Label>
-          <Select>
+          <Select onValueChange={(value) => handleChangeLang(value, "output")} defaultValue={"es"}>
             <SelectTrigger className="text-gray-500 dark:text-gray-400">
               <SelectValue placeholder="Select language" />
             </SelectTrigger>
