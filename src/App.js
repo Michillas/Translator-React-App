@@ -8,12 +8,14 @@ import translateText from './api/translator'
 
 import ThemeIcon from './assets/themeicon'
 
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { icon } from '@fortawesome/fontawesome-svg-core/import.macro'
+
 function App() {
 
   const [theme, setTheme] = useState("light")
 
   const [inputLang, setInputLang] = useState("en")
-
   const [outputLang, setOutputLang] = useState("es")
 
   useEffect(() => {
