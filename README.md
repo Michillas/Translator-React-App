@@ -23,9 +23,9 @@ https://translator-react-app.vercel.app/
 ## To-do
 ✅ - Support multiple languages 
 
-🟨 - Be able to copy translations 
+✅ - Be able to copy translations 
 
-🟨 - Icon to exchange the values of the languages in the dropdown menu
+🟨 - Make the exchange button also change the language in the dropdown menu and not only the textarea content
 
 🟨 - Language changer of the app on the top right of the screen
 
