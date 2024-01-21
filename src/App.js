@@ -13,7 +13,7 @@ import { icon } from '@fortawesome/fontawesome-svg-core/import.macro'
 
 function App() {
 
-  const [theme, setTheme] = useState("light")
+  const [theme, setTheme] = useState("dark")
 
   const [inputLang, setInputLang] = useState("en")
   const [outputLang, setOutputLang] = useState("es")
