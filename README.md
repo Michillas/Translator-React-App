@@ -7,7 +7,7 @@
 https://translator-react-app.vercel.app/
 
 ## Screenshot
-![image](https://github.com/Michillas/Translator-React-App/assets/140931203/61f8e5bd-9ed0-4a71-a25b-8c63f7b62d9f)
+![image](https://github.com/Michillas/Translator-React-App/assets/140931203/f1561374-ae6a-4aef-96c8-d643f818eaef)
 
 ## Setup the APP
 ### 1- Ensure you have NodeJS installed
