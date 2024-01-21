@@ -30,14 +30,6 @@ function App() {
     setTheme(prevTheme => prevTheme === "light" ? "dark" : "light")
   }
 
-  function handleChangeLang(value, type) {
-    if (type === "input") {
-      setInputLang(value)
-    } else {
-      setOutputLang(value)
-    }
-  }
-
   function handleCopyText() {
     let text
     text = document.getElementById('output-text').value
@@ -48,6 +40,12 @@ function App() {
     } catch (err) {
       console.error('Failed to copy: ', err);
     }
+  }
+
+  function handleExchange() {
+    let exchangeText = document.getElementById('input-text').value
+    document.getElementById('input-text').value = document.getElementById('output-text').value
+    document.getElementById('output-text').value = exchangeText
   }
 
   return (
@@ -64,7 +62,7 @@ function App() {
         <div className="grid gap-2">
           <Label htmlFor="input-text" className="text-lg dark:text-gray-100">Input Text</Label>
           <div className="flex space-x-1">
-            <Select onValueChange={(value) => handleChangeLang(value, "input")} defaultValue={"en"}>
+            <Select onValueChange={(value) => setInputLang(value)} defaultValue={"en"}>
               <SelectTrigger className="text-gray-500 dark:text-gray-400">
                 <SelectValue placeholder="Select language" />
               </SelectTrigger>
@@ -79,13 +77,14 @@ function App() {
                 <SelectItem value="ca">Catalan</SelectItem>
               </SelectContent>
             </Select>
+            <Button onClick={() => handleExchange()}><FontAwesomeIcon icon={icon({name: 'exchange'})} /></Button>
           </div>
           <textarea className="h-64 p-2 border rounded-md dark:bg-gray-800 dark:text-gray-100" id="input-text" />
         </div>
         <div className="grid gap-2">
           <Label htmlFor="output-text" className="text-lg dark:text-gray-100">Output Text</Label>
           <div className="flex space-x-1">
-          <Select onValueChange={(value) => handleChangeLang(value, "output")} defaultValue={"es"}>
+          <Select onValueChange={(value) => setOutputLang(value)} defaultValue={"es"}>
             <SelectTrigger className="text-gray-500 dark:text-gray-400">
               <SelectValue placeholder="Select language" />
             </SelectTrigger>
