@@ -7,7 +7,7 @@
 https://translator-react-app.vercel.app/
 
 ## Screenshot
-![image](https://github.com/Michillas/Translator-React-App/assets/140931203/61f8e5bd-9ed0-4a71-a25b-8c63f7b62d9f)
+![image](https://github.com/Michillas/Translator-React-App/assets/140931203/f1561374-ae6a-4aef-96c8-d643f818eaef)
 
 ## Setup the APP
 ### 1- Ensure you have NodeJS installed
@@ -23,9 +23,9 @@ https://translator-react-app.vercel.app/
 ## To-do
 ✅ - Support multiple languages 
 
-🟨 - Be able to copy translations 
+✅ - Be able to copy translations 
 
-🟨 - Icon to exchange the values of the languages in the dropdown menu
+🟨 - Make the exchange button also change the language in the dropdown menu and not only the textarea content
 
 🟨 - Language changer of the app on the top right of the screen
 
