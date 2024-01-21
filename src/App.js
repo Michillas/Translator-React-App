@@ -38,6 +38,18 @@ function App() {
     }
   }
 
+  function handleCopyText() {
+    let text
+    text = document.getElementById('output-text').value
+    try {
+      navigator.clipboard.writeText(text);
+      console.log('Content copied to clipboard');
+      alert('Copied!')
+    } catch (err) {
+      console.error('Failed to copy: ', err);
+    }
+  }
+
   return (
     <main className="flex flex-col h-screen">
       <header className="flex items-center justify-between bg-gray-100 p-4 shadow-md dark:bg-gray-800">
@@ -51,25 +63,28 @@ function App() {
       <div className="flex-1 grid gap-6 p-4 md:grid-cols-2 dark:bg-gray-700">
         <div className="grid gap-2">
           <Label htmlFor="input-text" className="text-lg dark:text-gray-100">Input Text</Label>
-          <Select onValueChange={(value) => handleChangeLang(value, "input")} defaultValue={"en"}>
-            <SelectTrigger className="text-gray-500 dark:text-gray-400">
-              <SelectValue placeholder="Select language" />
-            </SelectTrigger>
-            <SelectContent>
-              <SelectItem value="en">English</SelectItem>
-              <SelectItem value="es">Spanish</SelectItem>
-              <SelectItem value="fr">French</SelectItem>
-              <SelectItem value="de">German</SelectItem>
-              <SelectItem value="ru">Russian</SelectItem>
-              <SelectItem value="ja">Japanese</SelectItem>
-              <SelectItem value="ko">Korean</SelectItem>
-              <SelectItem value="ca">Catalan</SelectItem>
-            </SelectContent>
-          </Select>
+          <div className="flex space-x-1">
+            <Select onValueChange={(value) => handleChangeLang(value, "input")} defaultValue={"en"}>
+              <SelectTrigger className="text-gray-500 dark:text-gray-400">
+                <SelectValue placeholder="Select language" />
+              </SelectTrigger>
+              <SelectContent>
+                <SelectItem value="en">English</SelectItem>
+                <SelectItem value="es">Spanish</SelectItem>
+                <SelectItem value="fr">French</SelectItem>
+                <SelectItem value="de">German</SelectItem>
+                <SelectItem value="ru">Russian</SelectItem>
+                <SelectItem value="ja">Japanese</SelectItem>
+                <SelectItem value="ko">Korean</SelectItem>
+                <SelectItem value="ca">Catalan</SelectItem>
+              </SelectContent>
+            </Select>
+          </div>
           <textarea className="h-64 p-2 border rounded-md dark:bg-gray-800 dark:text-gray-100" id="input-text" />
         </div>
         <div className="grid gap-2">
           <Label htmlFor="output-text" className="text-lg dark:text-gray-100">Output Text</Label>
+          <div className="flex space-x-1">
           <Select onValueChange={(value) => handleChangeLang(value, "output")} defaultValue={"es"}>
             <SelectTrigger className="text-gray-500 dark:text-gray-400">
               <SelectValue placeholder="Select language" />
@@ -85,7 +100,9 @@ function App() {
               <SelectItem value="ca">Catalan</SelectItem>
             </SelectContent>
           </Select>
-          <textarea className="h-64 p-2 border rounded-md dark:bg-gray-800 dark:text-gray-100" id="output-text" />
+          <Button onClick={() => handleCopyText()}><FontAwesomeIcon icon={icon({name: 'copy'})} /></Button>
+          </div>
+          <textarea className="h-64 p-2 border rounded-md dark:bg-gray-800 dark:text-gray-100" id="output-text"/>
         </div>
         <Button className="md:col-span-2 dark:text-gray-100" onClick={() => translateText(inputLang, outputLang)}>Translate</Button>
       </div>
