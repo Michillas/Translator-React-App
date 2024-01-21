@@ -19,20 +19,15 @@ function App() {
   const [outputLang, setOutputLang] = useState("es")
 
   useEffect(() => {
-    if (theme === "dark") {
-      document.querySelector('body').classList.remove('dark')
-    } else {
-      document.querySelector('body').classList.add('dark')
-    }
-  })
+    document.querySelector('body').classList.toggle('dark', theme === 'dark');
+  });
 
   const handleChangeTheme = () => {
     setTheme(prevTheme => prevTheme === "light" ? "dark" : "light")
   }
 
   function handleCopyText() {
-    let text
-    text = document.getElementById('output-text').value
+    const text = document.getElementById('output-text').value
     try {
       navigator.clipboard.writeText(text);
       console.log('Content copied to clipboard');
@@ -43,7 +38,7 @@ function App() {
   }
 
   function handleExchange() {
-    let exchangeText = document.getElementById('input-text').value
+    const exchangeText = document.getElementById('input-text').value
     document.getElementById('input-text').value = document.getElementById('output-text').value
     document.getElementById('output-text').value = exchangeText
   }
