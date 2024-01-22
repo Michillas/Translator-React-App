@@ -55,7 +55,7 @@ function App() {
       </header>
       <div className="flex-1 grid gap-6 p-4 md:grid-cols-2 dark:bg-gray-700">
         <div className="grid gap-2">
-          <Label htmlFor="input-text" className="text-lg dark:text-gray-100">Input Text</Label>
+          <Label htmlFor="input-text" className="text-lg text-center dark:text-gray-100">Input Text</Label>
           <div className="flex space-x-1">
             <Select onValueChange={(value) => setInputLang(value)} defaultValue={"en"}>
               <SelectTrigger className="text-gray-500 dark:text-gray-400">
@@ -77,7 +77,7 @@ function App() {
           <textarea className="h-64 p-2 border rounded-md dark:bg-gray-800 dark:text-gray-100" id="input-text" />
         </div>
         <div className="grid gap-2">
-          <Label htmlFor="output-text" className="text-lg dark:text-gray-100">Output Text</Label>
+          <Label htmlFor="output-text" className="text-lg text-center dark:text-gray-100">Output Text</Label>
           <div className="flex space-x-1">
           <Button onClick={() => handleCopyText()}><FontAwesomeIcon icon={icon({name: 'copy'})} /></Button>
           <Select onValueChange={(value) => setOutputLang(value)} defaultValue={"es"}>
