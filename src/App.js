@@ -79,6 +79,7 @@ function App() {
         <div className="grid gap-2">
           <Label htmlFor="output-text" className="text-lg dark:text-gray-100">Output Text</Label>
           <div className="flex space-x-1">
+          <Button onClick={() => handleCopyText()}><FontAwesomeIcon icon={icon({name: 'copy'})} /></Button>
           <Select onValueChange={(value) => setOutputLang(value)} defaultValue={"es"}>
             <SelectTrigger className="text-gray-500 dark:text-gray-400">
               <SelectValue placeholder="Select language" />
@@ -94,7 +95,6 @@ function App() {
               <SelectItem value="ca">Catalan</SelectItem>
             </SelectContent>
           </Select>
-          <Button onClick={() => handleCopyText()}><FontAwesomeIcon icon={icon({name: 'copy'})} /></Button>
           </div>
           <textarea className="h-64 p-2 border rounded-md dark:bg-gray-800 dark:text-gray-100" id="output-text"/>
         </div>
