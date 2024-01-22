@@ -34,7 +34,7 @@ async function translateText(selectedValueInput, selectedValueOutput) {
         const historyList = document.getElementById("history-list");
 
         if (historyList.children.length >= 5) {
-          historyList.lastElementChild.remove();
+          historyList.firstElementChild.remove();
         }
 
         const li = document.createElement("li");
