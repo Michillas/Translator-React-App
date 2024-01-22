@@ -1,4 +1,4 @@
-<h1 align="center">⚛️ Translator made in React [ON DEVELOPMENT]</h1>
+<h1 align="center">⚛️ Translator made in React</h1>
 <p align="center">A simple translator made with create-react-app</p>
 
 <p align="center"><img src="https://img.shields.io/badge/javascript-%23323330.svg?style=for-the-badge&logo=javascript&logoColor=%23F7DF1E"> <img src="https://img.shields.io/badge/react-%2320232a.svg?style=for-the-badge&logo=react&logoColor=%2361DAFB"> <img src="https://img.shields.io/badge/tailwindcss-%2338B2AC.svg?style=for-the-badge&logo=tailwind-css&logoColor=white"></p>
