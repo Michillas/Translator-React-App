@@ -27,6 +27,21 @@ async function translateText(selectedValueInput, selectedValueOutput) {
     .then((v2) => {
       try {
         outputText.value = v2.data.translatedText;
+
+        /* ... */
+        const translation = inputText.value + " - " + outputText.value
+
+        const historyList = document.getElementById("history-list");
+
+        if (historyList.children.length >= 5) {
+          historyList.lastElementChild.remove();
+        }
+
+        const li = document.createElement("li");
+        li.className = "text-gray-700 dark:text-gray-300";
+        li.textContent = translation;
+        
+        historyList.appendChild(li);
       } catch {
         outputText.placeholder = v2.message;
       }

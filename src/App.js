@@ -102,12 +102,7 @@ function App() {
       </div>
       <div className="bg-gray-100 p-4 shadow-md dark:bg-gray-800">
         <h2 className="text-xl font-bold text-gray-900 dark:text-gray-100">Recent Translations</h2>
-        <ul className="space-y-2 mt-2">
-          <li className="text-gray-700 dark:text-gray-300">Hello - Hola</li>
-          <li className="text-gray-700 dark:text-gray-300">Goodbye - Adiós</li>
-          <li className="text-gray-700 dark:text-gray-300">Please - Por favor</li>
-          <li className="text-gray-700 dark:text-gray-300">Thank you - Gracias</li>
-          <li className="text-gray-700 dark:text-gray-300">Yes - Sí</li>
+        <ul className="space-y-2 mt-2" id="history-list">
         </ul>
       </div>
       <div className="bg-black">
