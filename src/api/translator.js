@@ -28,7 +28,7 @@ async function translateText(selectedValueInput, selectedValueOutput) {
       try {
         outputText.value = v2.data.translatedText;
 
-        /* ... */
+        // Translation history logic
         const translation = inputText.value + " - " + outputText.value
 
         const historyList = document.getElementById("history-list");

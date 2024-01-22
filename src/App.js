@@ -26,6 +26,7 @@ function App() {
     setTheme(prevTheme => prevTheme === "light" ? "dark" : "light")
   }
 
+  // Method to copy the text from output
   function handleCopyText() {
     const text = document.getElementById('output-text').value
     try {
@@ -37,6 +38,7 @@ function App() {
     }
   }
 
+  // Exchange the input and output text values
   function handleExchange() {
     const exchangeText = document.getElementById('input-text').value
     document.getElementById('input-text').value = document.getElementById('output-text').value
