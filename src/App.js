@@ -1,6 +1,15 @@
 import { SelectValue, SelectTrigger, SelectItem, SelectContent, Select } from "./components/ui/select"
 import { Label } from "./components/ui/label"
 import { Button } from "./components/ui/button"
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuLabel,
+  DropdownMenuRadioGroup,
+  DropdownMenuRadioItem,
+  DropdownMenuSeparator,
+  DropdownMenuTrigger,
+} from "./components/ui/dropdown-menu"
 
 import {useEffect, useState} from 'react'
 
@@ -17,6 +26,7 @@ function App() {
 
   const [inputLang, setInputLang] = useState("en")
   const [outputLang, setOutputLang] = useState("es")
+  const [locate, setLocate] = useState("english")
 
   useEffect(() => {
     document.querySelector('body').classList.toggle('dark', theme === 'dark');
@@ -110,7 +120,20 @@ function App() {
             </ul>
           </div>
           <div>
-            <Button variant="ghost"><FontAwesomeIcon icon={icon({name: 'gear'})} /></Button>
+          <DropdownMenu>
+            <DropdownMenuTrigger asChild>
+              <Button variant="ghost"><FontAwesomeIcon icon={icon({name: 'gear'})} /></Button>
+            </DropdownMenuTrigger>
+            <DropdownMenuContent className="w-56">
+              <DropdownMenuLabel>Settings</DropdownMenuLabel>
+              <DropdownMenuSeparator />
+              <DropdownMenuRadioGroup value={locate} onValueChange={setLocate}>
+                <DropdownMenuRadioItem value="english">English</DropdownMenuRadioItem>
+                <DropdownMenuRadioItem value="spanish">Spanish</DropdownMenuRadioItem>
+                <DropdownMenuRadioItem value="german">German</DropdownMenuRadioItem>
+              </DropdownMenuRadioGroup>
+            </DropdownMenuContent>
+          </DropdownMenu>
           </div>
         </div>
       </div>
