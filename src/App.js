@@ -104,7 +104,7 @@ function App() {
       </div>
       <div className="bg-gray-100 p-4 shadow-md dark:bg-gray-800">
         <div className="flex">
-          <div className="w-full">
+          <div className="w-full min-h-56">
             <h2 className="text-xl font-bold text-gray-900 dark:text-gray-100">Recent Translations</h2>
             <ul className="space-y-2 mt-2" id="history-list">
               <br></br>
