@@ -105,6 +105,11 @@ function App() {
       <div className="bg-gray-100 p-4 shadow-md dark:bg-gray-800">
         <h2 className="text-xl font-bold text-gray-900 dark:text-gray-100">Recent Translations</h2>
         <ul className="space-y-2 mt-2" id="history-list">
+          <br></br>
+          <br></br>
+          <br></br>
+          <br></br>
+          <br></br>
         </ul>
       </div>
       <div className="bg-black">
