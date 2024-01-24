@@ -103,14 +103,21 @@ function App() {
         <Button className="md:col-span-2 dark:text-gray-100" onClick={() => translateText(inputLang, outputLang)}>Translate</Button>
       </div>
       <div className="bg-gray-100 p-4 shadow-md dark:bg-gray-800">
-        <h2 className="text-xl font-bold text-gray-900 dark:text-gray-100">Recent Translations</h2>
-        <ul className="space-y-2 mt-2" id="history-list">
-          <br></br>
-          <br></br>
-          <br></br>
-          <br></br>
-          <br></br>
-        </ul>
+        <div className="flex">
+          <div className="w-full">
+            <h2 className="text-xl font-bold text-gray-900 dark:text-gray-100">Recent Translations</h2>
+            <ul className="space-y-2 mt-2" id="history-list">
+              <br></br>
+              <br></br>
+              <br></br>
+              <br></br>
+              <br></br>
+            </ul>
+          </div>
+          <div>
+            <Button variant="ghost"><FontAwesomeIcon icon={icon({name: 'gear'})} /></Button>
+          </div>
+        </div>
       </div>
       <div className="bg-black">
         <p className="text-center text-gray-100 text">Made with ❤️ by Michillas</p>
