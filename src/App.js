@@ -67,7 +67,7 @@ function App() {
       </header>
       <div className="flex-1 grid gap-6 p-4 md:grid-cols-2 dark:bg-gray-700">
         <div className="grid gap-2">
-          <Label htmlFor="input-text" className="text-lg text-center dark:text-gray-100">Input Text</Label>
+          <Label htmlFor="input-text" className="text-lg text-center dark:text-gray-100">{locate === 'english' ? 'Input text' : locate === 'spanish' ? 'Texto de entrada' : 'Text eingeben'}</Label>
           <div className="flex space-x-1">
             <Select onValueChange={(value) => setInputLang(value)} defaultValue={"en"}>
               <SelectTrigger className="text-gray-500 dark:text-gray-400">
@@ -89,7 +89,7 @@ function App() {
           <textarea className="h-64 p-2 border rounded-md dark:bg-gray-800 dark:text-gray-100" id="input-text" />
         </div>
         <div className="grid gap-2">
-          <Label htmlFor="output-text" className="text-lg text-center dark:text-gray-100">Output Text</Label>
+          <Label htmlFor="output-text" className="text-lg text-center dark:text-gray-100">{locate === 'english' ? 'Output text' : locate === 'spanish' ? 'Texto de salida' : 'Text ausgeben'}</Label>
           <div className="flex space-x-1">
           <Button onClick={() => handleCopyText()}><FontAwesomeIcon icon={icon({name: 'copy'})} /></Button>
           <Select onValueChange={(value) => setOutputLang(value)} defaultValue={"es"}>
@@ -110,12 +110,12 @@ function App() {
           </div>
           <textarea className="h-64 p-2 border rounded-md dark:bg-gray-800 dark:text-gray-100" id="output-text"/>
         </div>
-        <Button className="md:col-span-2 dark:text-gray-100" onClick={() => translateText(inputLang, outputLang)}>Translate</Button>
+        <Button className="md:col-span-2 dark:text-gray-100" onClick={() => translateText(inputLang, outputLang)}>{locate === 'english' ? 'Translate' : locate === 'spanish' ? 'Traducir' : 'Übersetzen'}</Button>
       </div>
       <div className="bg-gray-100 p-4 shadow-md dark:bg-gray-800">
         <div className="flex">
           <div className="w-full min-h-56">
-            <h2 className="text-xl font-bold text-gray-900 dark:text-gray-100">Recent Translations</h2>
+            <h2 className="text-xl font-bold text-gray-900 dark:text-gray-100">{locate === 'english' ? 'Recent Translations' : locate === 'spanish' ? 'Traducciones' : 'Übersetzungen'}</h2>
             <ul className="space-y-2 mt-2" id="history-list">
             </ul>
           </div>
@@ -125,7 +125,7 @@ function App() {
               <Button variant="ghost"><FontAwesomeIcon icon={icon({name: 'gear'})} /></Button>
             </DropdownMenuTrigger>
             <DropdownMenuContent className="w-56">
-              <DropdownMenuLabel>Settings</DropdownMenuLabel>
+              <DropdownMenuLabel>{locate === 'english' ? 'Settings' : locate === 'spanish' ? 'Ajustes' : 'Einstellungen'}</DropdownMenuLabel>
               <DropdownMenuSeparator />
               <DropdownMenuRadioGroup value={locate} onValueChange={setLocate}>
                 <DropdownMenuRadioItem value="english">English</DropdownMenuRadioItem>
