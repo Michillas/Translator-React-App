@@ -74,14 +74,14 @@ function App() {
                 <SelectValue placeholder="Select language" />
               </SelectTrigger>
               <SelectContent>
-                <SelectItem value="en">English</SelectItem>
-                <SelectItem value="es">Spanish</SelectItem>
-                <SelectItem value="fr">French</SelectItem>
-                <SelectItem value="de">German</SelectItem>
-                <SelectItem value="ru">Russian</SelectItem>
-                <SelectItem value="ja">Japanese</SelectItem>
-                <SelectItem value="ko">Korean</SelectItem>
-                <SelectItem value="ca">Catalan</SelectItem>
+                <SelectItem value="en">{locate === 'english' ? 'English' : locate === 'spanish' ? 'Inglés' : 'Englisch'}</SelectItem>
+                <SelectItem value="es">{locate === 'english' ? 'Spanish' : locate === 'spanish' ? 'Español' : 'Spanisch'}</SelectItem>
+                <SelectItem value="fr">{locate === 'english' ? 'French' : locate === 'spanish' ? 'Francés' : 'Französisch'}</SelectItem>
+                <SelectItem value="de">{locate === 'english' ? 'German' : locate === 'spanish' ? 'Alemán' : 'Deutsch'}</SelectItem>
+                <SelectItem value="ru">{locate === 'english' ? 'Russian' : locate === 'spanish' ? 'Ruso' : 'Russisch'}</SelectItem>
+                <SelectItem value="ja">{locate === 'english' ? 'Japanese' : locate === 'spanish' ? 'Japonés' : 'Japanisch'}</SelectItem>
+                <SelectItem value="ko">{locate === 'english' ? 'Korean' : locate === 'spanish' ? 'Coreano' : 'Koreanisch'}</SelectItem>
+                <SelectItem value="ca">{locate === 'english' ? 'Catalan' : locate === 'spanish' ? 'Catalán' : 'Katalanisch'}</SelectItem>
               </SelectContent>
             </Select>
             <Button onClick={() => handleExchange()}><FontAwesomeIcon icon={icon({name: 'exchange'})} /></Button>
