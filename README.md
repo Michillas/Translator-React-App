@@ -27,9 +27,9 @@ https://translator-react-app.vercel.app/
 
 ✅ - Translation history 
 
-🟨 - Make the exchange button also change the language in the dropdown menu and not only the textarea content
+✅ - Settings button with localization selector
 
-🟨 - Language changer of the app on the top right of the screen
+🟨 - Make the exchange button also change the language in the dropdown menu and not only the textarea content
 
 🟨 - Easier manual way to introduce the API Key of RapidAPI
 
