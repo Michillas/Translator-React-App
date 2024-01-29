@@ -15,8 +15,6 @@ import {useEffect, useState} from 'react'
 
 import translateText from './api/translator'
 
-import ThemeIcon from './assets/themeicon'
-
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { icon } from '@fortawesome/fontawesome-svg-core/import.macro'
 
@@ -61,7 +59,7 @@ function App() {
         <img src={process.env.PUBLIC_URL + '/logo192.png'} alt="logo" className="h-16" />
         <h1 className="text-2xl font-bold text-gray-900 dark:text-gray-100 mx-2 text-center">Translator App</h1>
         <Button variant="ghost" onClick={handleChangeTheme}>
-            <ThemeIcon className="w-5 h-5" />
+            {theme === 'dark' ? <FontAwesomeIcon icon={icon({name: 'sun'})} size="lg" /> : <FontAwesomeIcon icon={icon({name: 'moon'})} size="lg" />}
             <span className="sr-only">Toggle dark mode</span>
         </Button>
       </header>
@@ -122,7 +120,7 @@ function App() {
           <div>
           <DropdownMenu>
             <DropdownMenuTrigger asChild>
-              <Button variant="ghost"><FontAwesomeIcon icon={icon({name: 'gear'})} /></Button>
+              <Button variant="ghost"><FontAwesomeIcon icon={icon({name: 'gear'})} size="lg" /></Button>
             </DropdownMenuTrigger>
             <DropdownMenuContent className="w-56">
               <DropdownMenuLabel>{locate === 'english' ? 'Settings' : locate === 'spanish' ? 'Ajustes' : 'Einstellungen'}</DropdownMenuLabel>
